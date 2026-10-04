@@ -12,6 +12,8 @@ from .modules.crypto.decrypt import run as run_decryption
 
 
 
+from .about import show_about
+
 
 
 
@@ -38,8 +40,15 @@ def start():
                 else:
                     print("\n[!] Invalid option.")
 
+
+
+
+
         elif choice == "2":
             print("\n[+] Network selected.")
+
+
+
 
         elif choice == "3":
             
@@ -61,20 +70,14 @@ def start():
                 else:
                     print("\n[!] Invalid option.")
 
-        elif choice == "4":
-            print("\n[+] Password selected.")
+
+
 
         elif choice == "5":
-            print("\n[+] File Analysis selected.")
+            print("\n[+] Password selected.")
 
         elif choice == "6":
-            print("\n[+] System selected.")
-
-        elif choice == "7":
-            print("\n[+] Utilities selected.")
-
-        elif choice == "8":
-            print("\n[+] About selected.")
+            show_about()
 
         elif choice == "0":
             print("\n[*] Exiting Sinwar...")
