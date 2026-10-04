@@ -1,5 +1,5 @@
 def show_menu():
-    print("\n[1] Encryption & Decryption")
+    print("[1] Encryption & Decryption")
     print("[2] Network")
     print("[3] Encoding & Decoding")
     print("[4] Password")

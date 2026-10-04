@@ -1,21 +1,14 @@
-import base64 
+from urllib.parse import quote, unquote
 
 def encode_fun(text):
-    
-    encoded = base64.b64encode(text.encode("utf-8"))
-    return encoded.decode("utf-8")
-    
-    
+    return quote(text)
 
 def decode_fun(text):
-    
-    decoded = base64.b64decode(text.encode("utf-8"))
-    return decoded.decode("utf-8")
-    
-    
+    return unquote(text)
+
 
 def run():
-    print("\n=== Base64 ===")
+    print("\n=== URL Encoding ===")
     print("[1] Encode")
     print("[2] Decode")
     print("[0] Back")
@@ -28,7 +21,7 @@ def run():
         print(f"\nResult: {result}")
 
     elif choice == "2":
-        text = input("Enter Base64: ")
+        text = input("Enter encoded URL text: ")
         result = decode_fun(text)
         print(f"\nResult: {result}")
 

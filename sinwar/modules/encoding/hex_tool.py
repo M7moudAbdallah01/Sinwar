@@ -1,21 +1,14 @@
-import base64 
-
 def encode_fun(text):
-    
-    encoded = base64.b64encode(text.encode("utf-8"))
-    return encoded.decode("utf-8")
-    
-    
+    return text.encode("utf-8").hex()
+
 
 def decode_fun(text):
-    
-    decoded = base64.b64decode(text.encode("utf-8"))
-    return decoded.decode("utf-8")
-    
-    
+    return bytes.fromhex(text).decode("utf-8")
+
+
 
 def run():
-    print("\n=== Base64 ===")
+    print("\n=== Hex Encoding ===")
     print("[1] Encode")
     print("[2] Decode")
     print("[0] Back")
@@ -28,7 +21,7 @@ def run():
         print(f"\nResult: {result}")
 
     elif choice == "2":
-        text = input("Enter Base64: ")
+        text = input("Enter Hex: ")
         result = decode_fun(text)
         print(f"\nResult: {result}")
 
