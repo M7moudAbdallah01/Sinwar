@@ -8,8 +8,9 @@ from .modules.crypto.menu import show_crypto_menu
 from .modules.crypto.encrypt import run as run_encryption
 from .modules.crypto.hashing import run as run_hashing
 from .modules.crypto.decrypt import run as run_decryption
-
-
+from .modules.network.menu import show_network_menu
+from .modules.network.port_scanner import run as run_port_scanner
+from .modules.network.dns_lookup import run as run_dns_lookup
 
 
 from .about import show_about
@@ -45,12 +46,23 @@ def start():
 
 
         elif choice == "2":
-            print("\n[+] Network selected.")
+            while True:
+                network_choice = show_network_menu()
 
-
-
+                if network_choice == "1":
+                    run_port_scanner()
+                elif network_choice == "2":
+                    run_dns_lookup()
+                elif network_choice == "0":
+                    break
+                else:
+                    print("\n[!] Invalid option.")
 
         elif choice == "3":
+            pass
+
+
+        elif choice == "4":
             
             while True:
                 encoding_choice = show_encoding_menu()
@@ -75,6 +87,9 @@ def start():
 
         elif choice == "5":
             print("\n[+] Password selected.")
+
+
+
 
         elif choice == "6":
             show_about()
