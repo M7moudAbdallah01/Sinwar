@@ -68,8 +68,7 @@ def start():
             pass
 
 
-        elif choice == "4":
-            
+        elif choice == "4": 
             while True:
                 encoding_choice = show_encoding_menu()
 
@@ -88,12 +87,8 @@ def start():
                 else:
                     print("\n[!] Invalid option.")
 
-
-
-
         elif choice == "5":
             while True:
-
                 password_choice = show_password_menu()
 
                 if password_choice == "1":
@@ -110,9 +105,6 @@ def start():
 
                 else:
                     print("\n[!] Invalid option.")
-
-
-
 
         elif choice == "6":
             show_about()
