@@ -12,6 +12,12 @@ from .modules.network.menu import show_network_menu
 from .modules.network.port_scanner import run as run_port_scanner
 from .modules.network.dns_lookup import run as run_dns_lookup
 
+from .modules.password.menu import show_password_menu
+from .modules.password.manager import (
+    run_generate_password,
+    run_view_passwords,
+    run_delete_password
+)
 
 from .about import show_about
 
@@ -86,7 +92,24 @@ def start():
 
 
         elif choice == "5":
-            print("\n[+] Password selected.")
+            while True:
+
+                password_choice = show_password_menu()
+
+                if password_choice == "1":
+                    run_generate_password()
+
+                elif password_choice == "2":
+                    run_view_passwords()
+
+                elif password_choice == "3":
+                    run_delete_password()
+
+                elif password_choice == "0":
+                    break
+
+                else:
+                    print("\n[!] Invalid option.")
 
 
 
