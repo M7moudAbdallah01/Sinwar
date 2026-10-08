@@ -19,6 +19,15 @@ from .modules.password.manager import (
     run_delete_password
 )
 
+from .modules.web.menu import show_web_menu
+
+from .modules.web.directory import run as run_directory
+from .modules.web.headers import run as run_headers
+from .modules.web.robots import run as run_robots
+from .modules.web.technology import run as run_technology
+from .modules.web.javascript import run as run_javascript
+from .modules.web.reflection import run as run_reflection
+
 from .about import show_about
 
 
@@ -65,7 +74,32 @@ def start():
                     print("\n[!] Invalid option.")
 
         elif choice == "3":
-            pass
+            while True:
+                web_choice = show_web_menu()
+
+                if web_choice == "1":
+                    run_directory()
+
+                elif web_choice == "2":
+                    run_headers()
+
+                elif web_choice == "3":
+                    run_robots()
+
+                elif web_choice == "4":
+                    run_technology()
+
+                elif web_choice == "5":
+                    run_javascript()
+
+                elif web_choice == "6":
+                    run_reflection()
+
+                elif web_choice == "0":
+                    break
+
+                else:
+                    print("\n[!] Invalid option.")
 
 
         elif choice == "4": 
