@@ -1,6 +1,5 @@
 # SINWAR
 
-<<<<<<< HEAD
 > **Security Information & Network Web Assessment Toolkit**
 
 SINWAR is a Python-based security toolkit designed for **learning, defensive security assessment, and authorized penetration testing**. It provides a simple interactive CLI that groups common security utilities into one place.
@@ -345,4 +344,4 @@ See `LICENSE` for details.
 
 If you find a bug or have an improvement, open an issue or submit a pull request.
 =======
->>>>>>> 525c40c8d7a958c1e9dfb7eb701871e12f58e491
+
