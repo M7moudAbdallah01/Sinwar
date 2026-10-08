@@ -9,44 +9,62 @@ SINWAR is a Python-based security toolkit designed for **learning, defensive sec
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Status](https://img.shields.io/badge/Status-v1.0.0-success)
 
+---
+
+## 👨‍💻 Author
+
+**Mahmoud Abdallah**
+
+Cybersecurity Learner & Penetration Testing Enthusiast
+
+* GitHub: [@M7moudAbdallah01](https://github.com/M7moudAbdallah01)
+* Portfolio: [Mahmoud A. Sharaf](https://m7moudabdallah01.github.io/My-Portfolio/)
+
+---
+
 ## ⚠️ Responsible Use
 
 SINWAR is intended for systems you own or have explicit permission to test.
 
-Do **not** use it against third-party systems, accounts, networks, or applications without authorization. You are responsible for complying with applicable laws and rules of engagement.
+**Do not** use it against third-party systems, accounts, networks, or applications without authorization. You are responsible for complying with applicable laws and rules of engagement.
 
 ---
 
 ## Features
 
 ### 🔐 Crypto
-- Encryption / decryption utilities
-- Hashing utilities
+
+* Encryption / decryption utilities
+* Hashing utilities
 
 ### 🌐 Network
-- Port scanning
-- DNS lookup
+
+* Port scanning
+* DNS lookup
 
 ### 🛡️ Web Security
-- Directory discovery
-- Security headers analysis
-- `robots.txt` / `sitemap.xml` discovery
-- Basic technology detection
-- JavaScript endpoint discovery
-- Benign input reflection checks
+
+* Directory discovery
+* Security headers analysis
+* `robots.txt` / `sitemap.xml` discovery
+* Basic technology detection
+* JavaScript endpoint discovery
+* Benign input reflection checks
 
 ### 🔤 Encoding
-- Base64 encode/decode
-- URL encode/decode
-- Hex encode/decode
+
+* Base64 encode/decode
+* URL encode/decode
+* Hex encode/decode
 
 ### 🔑 Password Manager
-- Secure random password generation
-- Configurable length
-- Uppercase / lowercase / numbers / symbols
-- Save passwords locally
-- View saved passwords
-- Delete saved passwords
+
+* Secure random password generation
+* Configurable length
+* Uppercase / lowercase / numbers / symbols
+* Save passwords locally
+* View saved passwords
+* Delete saved passwords
 
 > **Note:** The current password manager stores entries in local JSON. It is suitable for learning and local testing, but it is **not a production-grade encrypted password vault**.
 
@@ -92,10 +110,10 @@ Your exact tree may contain additional helper files depending on the current ver
 
 ## Requirements
 
-- Linux
-- Python 3.9 or newer
-- Git
-- Internet connection for installing Python dependencies
+* Linux
+* Python 3.9 or newer
+* Git
+* Internet connection for installing Python dependencies
 
 Check Python:
 
@@ -145,19 +163,13 @@ pip install -r requirements.txt
 
 ## 4. Run SINWAR
 
-### Option A — if `cli.py` is the project entry point
+If `cli.py` is the project entry point:
 
 ```bash
 python3 cli.py
 ```
 
-### Option B — if your repository is packaged as a Python module
-
-```bash
-python3 -m sinwar
-```
-
-> Use **only the command that matches your repository structure**. If your current project does not contain a `sinwar/__main__.py`, use `python3 cli.py`.
+> Use the command that matches your repository structure.
 
 ---
 
@@ -199,21 +211,21 @@ Provide a target URL and a wordlist:
 
 The scanner checks candidate paths and reports useful HTTP status codes such as:
 
-- `200` — OK
-- `301/302/307/308` — Redirects
-- `401` — Authentication required
-- `403` — Forbidden
+* `200` — OK
+* `301/302/307/308` — Redirects
+* `401` — Authentication required
+* `403` — Forbidden
 
 ### Security Headers
 
 Checks common defensive HTTP headers, including:
 
-- Strict-Transport-Security
-- Content-Security-Policy
-- X-Content-Type-Options
-- X-Frame-Options
-- Referrer-Policy
-- Permissions-Policy
+* Strict-Transport-Security
+* Content-Security-Policy
+* X-Content-Type-Options
+* X-Frame-Options
+* Referrer-Policy
+* Permissions-Policy
 
 ### Robots / Sitemap
 
@@ -260,7 +272,7 @@ Example:
 
 The local `passwords.json` file is intentionally excluded from Git through `.gitignore`.
 
-**Never commit real passwords, API keys, tokens, or other secrets to GitHub.**
+> **Never commit real passwords, API keys, tokens, or other secrets to GitHub.**
 
 ---
 
@@ -309,16 +321,16 @@ v1.0.0
 
 Possible future improvements:
 
-- [ ] Encrypted password storage
-- [ ] Configuration file
-- [ ] Better logging
-- [ ] JSON/CSV report export
-- [ ] Improved web fingerprinting
-- [ ] More network utilities
-- [ ] Automated tests
-- [ ] CI workflow
-- [ ] PyPI/package installation
-- [ ] Cross-platform testing
+* [ ] Encrypted password storage
+* [ ] Configuration file
+* [ ] Better logging
+* [ ] JSON/CSV report export
+* [ ] Improved web fingerprinting
+* [ ] More network utilities
+* [ ] Automated tests
+* [ ] CI workflow
+* [ ] PyPI/package installation
+* [ ] Cross-platform testing
 
 ---
 
@@ -338,10 +350,12 @@ See `LICENSE` for details.
 
 ---
 
-## Author
+## About the Project
 
-**SINWAR** is a security-learning project focused on practical Python security tooling.
+SINWAR is an independent security-learning project created by **Mahmoud Abdallah** to explore practical Python security tooling and authorized security assessment workflows.
 
 If you find a bug or have an improvement, open an issue or submit a pull request.
-=======
 
+---
+
+**Made with Python by Mahmoud Abdallah**
