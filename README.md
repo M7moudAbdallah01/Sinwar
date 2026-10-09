@@ -127,7 +127,7 @@ git --version
 Replace `YOUR_USERNAME` with your GitHub username:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/SINWAR.git
+git clone https://github.com/M7moudAbdallah01/Sinwar.git
 cd SINWAR
 ```
 
