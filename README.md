@@ -74,32 +74,27 @@ SINWAR is intended for systems you own or have explicit permission to test.
 
 ```text
 SINWAR/
-├── cli.py
+├── sinwar/
+│   ├── __init__.py
+│   ├── __main__.py
+│   ├── cli.py
+│   ├── banner.py
+│   ├── about.py
+│   ├── menu.py
+│   └── modules/
+│       ├── __init__.py
+│       ├── crypto/
+│       ├── network/
+│       ├── encoding/
+│       ├── web/
+│       └── password/
 ├── requirements.txt
 ├── README.md
 ├── LICENSE
 ├── CHANGELOG.md
 ├── CONTRIBUTING.md
 ├── .gitignore
-└── modules/
-    ├── __init__.py
-    ├── banner.py
-    ├── about.py
-    ├── crypto/
-    ├── network/
-    ├── encoding/
-    ├── web/
-    │   ├── menu.py
-    │   ├── directory.py
-    │   ├── headers.py
-    │   ├── robots.py
-    │   ├── technology.py
-    │   ├── javascript.py
-    │   └── reflection.py
-    └── password/
-        ├── menu.py
-        ├── generator.py
-        └── manager.py
+└── .venv/  # Created locally during installation; not committed to Git
 ```
 
 Your exact tree may contain additional helper files depending on the current version.
@@ -136,40 +131,117 @@ git clone https://github.com/YOUR_USERNAME/SINWAR.git
 cd SINWAR
 ```
 
-## 2. Create a virtual environment
+## 2. Install system requirements
+
+On Kali Linux or Debian-based distributions:
+
+```bash
+sudo apt update
+sudo apt install -y python3-venv
+```
+
+## 3. Create a virtual environment
 
 ```bash
 python3 -m venv .venv
 ```
 
-Activate it:
+## 4. Install dependencies
 
 ```bash
-source .venv/bin/activate
+.venv/bin/python -m pip install --upgrade pip
+.venv/bin/python -m pip install -r requirements.txt
 ```
 
-You should now see something similar to:
+The `requirements.txt` file includes the Python dependencies required by the toolkit, including `requests` and `cryptography`.
+
+## 5. Test the application
+
+Run SINWAR using its Python package entry point:
+
+```bash
+.venv/bin/python -m sinwar
+```
+
+The main interactive menu should appear if the installation completed successfully.
+
+## 6. Register the `sinwar` command
+
+You can configure a global command for your current Linux user so that you can launch SINWAR from any directory.
+
+Run the following commands **from the SINWAR project directory**:
+
+```bash
+mkdir -p ~/.local/bin
+
+PROJECT_DIR="$(pwd)"
+
+cat > ~/.local/bin/sinwar <<EOF
+#!/usr/bin/env bash
+
+PROJECT_DIR="$PROJECT_DIR"
+
+cd "\$PROJECT_DIR" || exit 1
+
+exec "\$PROJECT_DIR/.venv/bin/python" -m sinwar "\$@"
+EOF
+
+chmod +x ~/.local/bin/sinwar
+```
+
+This creates a launcher at `~/.local/bin/sinwar`. It changes to the project directory before starting the Python package, ensuring that Python can locate the `sinwar` package.
+
+## 7. Ensure the launcher directory is in PATH
+
+Check your current `PATH`:
+
+```bash
+echo "$PATH"
+```
+
+If `~/.local/bin` is already included, no additional configuration is required.
+
+If you use Zsh and the directory is missing, add it to your shell configuration:
+
+```bash
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+If you use Bash instead, add the same export line to `~/.bashrc` and reload it:
+
+```bash
+source ~/.bashrc
+```
+
+## 8. Run SINWAR from anywhere
+
+You can now launch the toolkit without activating the virtual environment or navigating to the project directory:
+
+```bash
+sinwar
+```
+
+For example:
+
+```bash
+cd /tmp
+sinwar
+```
+
+To verify which launcher is being used:
+
+```bash
+command -v sinwar
+```
+
+Expected output:
 
 ```text
-(.venv) user@linux:~/SINWAR$
+/home/YOUR_USERNAME/.local/bin/sinwar
 ```
 
-## 3. Install dependencies
-
-```bash
-python3 -m pip install --upgrade pip
-pip install -r requirements.txt
-```
-
-## 4. Run SINWAR
-
-If `cli.py` is the project entry point:
-
-```bash
-python3 cli.py
-```
-
-> Use the command that matches your repository structure.
+**Important:** The launcher uses the project location where it was created. If you move the SINWAR directory, recreate the launcher using the new project location.
 
 ---
 
@@ -282,14 +354,24 @@ Create the environment:
 
 ```bash
 python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
 ```
 
-Run:
+Install dependencies:
 
 ```bash
-python3 cli.py
+.venv/bin/python -m pip install -r requirements.txt
+```
+
+Run the application:
+
+```bash
+.venv/bin/python -m sinwar
+```
+
+Alternatively, if you have configured the launcher, run:
+
+```bash
+sinwar
 ```
 
 Before committing:
