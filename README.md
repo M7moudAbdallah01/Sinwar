@@ -4,6 +4,8 @@
 
 SINWAR is a Python-based security toolkit designed for **learning, defensive security assessment, and authorized penetration testing**. It provides a simple interactive CLI that groups common security utilities into one place.
 
+![SINWAR Running](/images/run.png)
+
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
 ![Platform](https://img.shields.io/badge/Platform-Linux-lightgrey)
 ![License](https://img.shields.io/badge/License-MIT-green)
@@ -75,14 +77,12 @@ SINWAR is intended for systems you own or have explicit permission to test.
 ```text
 SINWAR/
 ├── sinwar/
-│   ├── __init__.py
 │   ├── __main__.py
 │   ├── cli.py
 │   ├── banner.py
 │   ├── about.py
 │   ├── menu.py
 │   └── modules/
-│       ├── __init__.py
 │       ├── crypto/
 │       ├── network/
 │       ├── encoding/
@@ -124,11 +124,9 @@ git --version
 
 ## 1. Clone the repository
 
-Replace `YOUR_USERNAME` with your GitHub username:
-
 ```bash
 git clone https://github.com/M7moudAbdallah01/Sinwar.git
-cd SINWAR
+cd Sinwar
 ```
 
 ## 2. Install system requirements
@@ -153,7 +151,7 @@ python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
 ```
 
-The `requirements.txt` file includes the Python dependencies required by the toolkit, including `requests` and `cryptography`.
+The `requirements.txt` file should include all Python dependencies required by the toolkit, including `requests` and `cryptography` if they are used by your modules.
 
 ## 5. Test the application
 
@@ -167,7 +165,7 @@ The main interactive menu should appear if the installation completed successful
 
 ## 6. Register the `sinwar` command
 
-You can configure a global command for your current Linux user so that you can launch SINWAR from any directory.
+You can configure a command for your current Linux user so that you can launch SINWAR from any directory.
 
 Run the following commands **from the SINWAR project directory**:
 
@@ -211,6 +209,7 @@ source ~/.zshrc
 If you use Bash instead, add the same export line to `~/.bashrc` and reload it:
 
 ```bash
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
@@ -385,13 +384,22 @@ git diff
 
 # Recommended Git Workflow
 
+Review your changes before committing:
+
 ```bash
-git add .
-git commit -m "Prepare v1.0.0 release"
+git status
+git diff
+```
+
+Stage the README and image:
+
+```bash
+git add README.md run.png requirements.txt
+git commit -m "Update README and add running screenshot"
 git push origin main
 ```
 
-Then create the GitHub release:
+Then create the GitHub release, if you are ready to publish it:
 
 ```text
 v1.0.0
