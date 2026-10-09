@@ -43,7 +43,12 @@ def show_about():
     print("    - DNS Lookup")
 
     print("\n[3] Web Security")
-    print("    - Coming Soon")
+    print("    - Directory")
+    print("    - Header")
+    print("    - JavaScript")
+    print("    - Robots.txt")
+    print("    - Redirection")
+    print("    - Technology Detection")
 
     print("\n[4] Encoding & Decoding")
     print("    - Base64")
